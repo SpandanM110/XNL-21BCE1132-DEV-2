@@ -1,0 +1,35 @@
+# Ignore Terraform and AWS-related files
+infrastructure/aws/terraform/.terraform/
+infrastructure/aws/terraform/terraform.tfstate*
+infrastructure/aws/terraform/.terraform.lock.hcl
+
+# Ignore Python virtual environments
+env/
+venv/
+**/env/
+**/venv/
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore system-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and cache
+logs/
+*.log
+*.out
+*.err
+node_modules/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*.swn
