@@ -1,0 +1,72 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - fastapi-user-service
+      - go-analytics-service
+
+  fastapi-user-service:
+    build: ./backend/fastapi-user-service
+    ports:
+      - "8000:8000"
+
+  go-analytics-service:
+    build: ./backend/go-analytics-service
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: xnl_db
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  minio:
+    image: minio/minio
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.0
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+
+  kafka:
+    image: bitnami/kafka
+    ports:
+      - "9092:9092"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  unleash:
+    image: unleashorg/unleash-server
+    ports:
+      - "4242:4242"
+    environment:
+      DATABASE_URL: postgres://unleash:unleash@postgres:5432/unleash
+      LOG_LEVEL: debug
+      INIT_ADMIN_API_TOKENS: "default:some-secret-token"
+    depends_on:
+      - postgres

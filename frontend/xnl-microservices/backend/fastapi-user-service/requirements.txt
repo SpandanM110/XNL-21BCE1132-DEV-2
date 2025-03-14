@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+psycopg2
+redis
+cassandra-driver
+clickhouse-driver
+kafka-python
+python-dotenv
+asyncpg
