@@ -1,4 +1,5 @@
 # Microservices Application - High-Performance, AI-Driven System
+![Screenshot 2025-03-15 002546](https://github.com/user-attachments/assets/b2f0b6a9-a994-4e2a-859c-f239da69dc5a)
 
 ## Overview
 This project is a fully scalable, AI-powered microservices application designed to handle **500,000+ requests per second** with sub-50ms response times. It integrates advanced **event-driven architecture, multi-cloud deployments, and self-healing automation**.
