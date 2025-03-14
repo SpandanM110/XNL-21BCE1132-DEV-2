@@ -1,8 +1,0 @@
-unleash:
-  environment: development
-  feature_toggles:
-    - name: "ai-optimizer"
-      description: "AI-powered Query Optimization"
-      enabled: true
-      strategies:
-        - name: "default"

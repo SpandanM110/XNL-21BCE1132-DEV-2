@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-service MyService {
-    rpc GetData (Request) returns (Response);
-}
-
-message Request { string id = 1; }
-message Response { string message = 1; }
