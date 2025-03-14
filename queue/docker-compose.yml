@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  kafka:
+    image: bitnami/kafka
+    ports:
+      - "9092:9092"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

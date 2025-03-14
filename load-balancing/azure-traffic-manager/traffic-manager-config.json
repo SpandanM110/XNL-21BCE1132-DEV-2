@@ -1,0 +1,30 @@
+{
+    "properties": {
+      "profileStatus": "Enabled",
+      "trafficRoutingMethod": "Performance",
+      "dnsConfig": {
+        "relativeName": "xnl-traffic",
+        "ttl": 60
+      },
+      "monitorConfig": {
+        "protocol": "HTTPS",
+        "port": 443,
+        "path": "/health"
+      },
+      "endpoints": [
+        {
+          "name": "backend-us",
+          "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints",
+          "target": "backend-us.example.com",
+          "weight": 100
+        },
+        {
+          "name": "backend-eu",
+          "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints",
+          "target": "backend-eu.example.com",
+          "weight": 100
+        }
+      ]
+    }
+  }
+  

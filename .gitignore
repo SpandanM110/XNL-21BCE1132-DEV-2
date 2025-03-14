@@ -2,6 +2,9 @@
 infrastructure/aws/terraform/.terraform/
 infrastructure/aws/terraform/terraform.tfstate*
 infrastructure/aws/terraform/.terraform.lock.hcl
+infrastructure/aws/terraform/tfplan*
+infrastructure/aws/terraform/*.tfvars
+infrastructure/aws/terraform/*.json
 
 # Ignore Python virtual environments
 env/
@@ -33,3 +36,23 @@ node_modules/
 *.swp
 *.swo
 *.swn
+
+# Ignore embedded Git repositories (fixes your warning)
+frontend-app/
+frontend-app/.git/
+
+# Ignore LF-CRLF issues (optional)
+*.sh text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.go text eol=lf
+
+# Ignore auto-generated Go files
+backend/go-analytics-service/go.sum
+backend/go-analytics-service/go.mod
+backend/go-analytics-service/bin/
+backend/go-analytics-service/pkg/
+
+# Ignore gRPC-generated Python files
+realtime/grpc-server/proto/*.pyc
+realtime/grpc-server/proto/__pycache__/
